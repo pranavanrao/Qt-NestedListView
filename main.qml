@@ -8,14 +8,6 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
-    ListModel {
-        id: mainModel
-
-        ListElement {type: "Type"; name: "Name"}
-        ListElement {type: "Type"; name: "Name"}
-        ListElement {type: "Type"; name: "Name"}
-    }
-
     Component {
         id: comp1
         Rectangle {
@@ -25,7 +17,7 @@ Window {
 
             Text {
                 id: txt1
-                text: index
+                text: "Name: " + model.name + ", Type: " + model.type
                 leftPadding: 10
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -39,7 +31,7 @@ Window {
         anchors.centerIn: parent
         spacing: 10
 
-        model: mainModel
+        model: mainList
         delegate: comp1
     }
 }
